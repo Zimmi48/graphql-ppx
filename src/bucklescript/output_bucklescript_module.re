@@ -116,6 +116,7 @@ let emit_printed_template_query = (parts: array(Graphql_printer.t), config) => {
              | FragmentQueryRef(f) => [f, ...acc],
            [],
          )
+      |> List.sort_uniq(String.compare)
       |> List.rev
     | Exclude => []
     };
